@@ -1,0 +1,9 @@
+<h1>Here are all your listings!...in a bit</h1>
+
+
+
+<% current_user.listings.each do |listing| %>
+  <ul>
+    <li><%= listing.title %><%= listing.details %><%= listing.location %> <%= listing.price %></li>
+  </ul>
+<% end %>
