@@ -8,7 +8,6 @@ FactoryGirl.define do
     title("Cute NW aparmtent")
     details("My aparment has 2 rooms")
     location("NW")
-    user
   end
 
 end

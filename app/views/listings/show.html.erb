@@ -1,21 +1,35 @@
-<h1>Listings</h1>
+<h1><%= @listing.title %></h1>
+<p>Portland, OR, United States </p>
+
 <div class="well">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Location</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% current_user.listings.each do |listing| %>
-          <tr>
-            <td><%= listing.title %></td>
-            <td><%= listing.location %></td>
-            <td>$<%= listing.price %></td>
-          </trl>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <h4>About This Listing</h4>
+    <h1>PICTURES WILL GO HERE</h1>
+    <hr>
+    <div class="col-md-4">
+      Description
+    </div>
+    <div class="col-md-4">
+      <%= @listing.details %>
+    </div>
+  </div>
+  <hr>
+  <div class = "row">
+    <div class="col-md-4">
+      Location
+    </div>
+    <div class="col-md-4">
+      <%= @listing.location %>
+    </div>
+  </div>
+  <hr>
+  <div class = "row">
+    <div class="col-md-4">
+      Price
+    </div>
+    <div class="col-md-4">
+      $<%= @listing.price %> per night
+    </div>
+  </div>
 </div>
+    <%= link_to "Contact Host", listings_path, :class => "btn btn-warning"%>

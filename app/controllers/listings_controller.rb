@@ -8,6 +8,7 @@ class ListingsController < ApplicationController
  end
 
  def create
+
    user = current_user
    @listing = user.listings.new(listing_params)
    if @listing.save
@@ -20,6 +21,8 @@ class ListingsController < ApplicationController
  end
 
  def show
+   @listing = Listing.find(params[:id])
+
  end
 
 private

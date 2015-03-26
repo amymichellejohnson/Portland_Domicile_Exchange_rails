@@ -1,0 +1,21 @@
+<h1>Listings</h1>
+<div class="well">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.listings.each do |listing| %>
+          <tr>
+            <td><%= listing.title %></td>
+            <td><%= listing.location %></td>
+            <td>$<%= listing.price %></td>
+          </trl>
+      <% end %>
+    </tbody>
+  </table>
+</div>

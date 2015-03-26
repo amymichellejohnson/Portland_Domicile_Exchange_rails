@@ -9,32 +9,32 @@
 <body>
 
   <div class="container">
-  <nav class="navbar navbar-default" role="navigation">
-    <ul class="nav navbar-nav navbar-left">
-      <a class="navbar-brand" href="/">PDX</a>
-    </ul>
+    <nav class="navbar navbar-default" role="navigation">
+      <ul class="nav navbar-nav navbar-left">
+        <a class="navbar-brand" href="/">PDX</a>
+      </ul>
 
-    <ul class="nav navbar-nav navbar pull-right">
-      <li><%= link_to "New Listing", new_listing_path %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li> <%= link_to "Sign up", new_user_registration_path %> </li>
-        <li> <%= link_to "Sign in", new_user_session_path %> </li>
-      <% end %>
-    </ul>
-  </nav>
+      <ul class="nav navbar-nav navbar pull-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "New listing", new_listing_path %></li>
+          <li><%= link_to "My page", user_path(current_user) %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li> <%= link_to "Sign up", new_user_registration_path %> </li>
+          <li> <%= link_to "Sign in", new_user_session_path %> </li>
+        <% end %>
+      </ul>
+    </nav>
 
-  <% if user_signed_in? %>
-    <p class="right-align">Logged in as <%= current_user.email %></p>
-  <% end %>
+    <% if user_signed_in? %>
+      <p class="right-align">Logged in as <%= current_user.email %></p>
+    <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+    <%= yield %>
 
-</div>
-
+  </div>
 </body>
 </html>
