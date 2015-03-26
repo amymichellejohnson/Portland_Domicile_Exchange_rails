@@ -1,0 +1,9 @@
+<h1>Upload Photo</h1>
+<div class="well">
+<%= form_for [@listing, @photo], :url => listing_photos_path, :html => { :multipart => true } do |form| %>
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+  <br>
+  <%= form.submit "Upload", :class => "btn btn-warning btn-sm" %>
+<% end %>
+</div>

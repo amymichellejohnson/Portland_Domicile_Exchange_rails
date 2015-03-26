@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :listings
+  after_create :send_email
+
+  def send_email
+    UserMailer.signup_confirmation(self).deliver_now
+  end
 end

@@ -1,28 +1,27 @@
 class PhotosController <ApplicationController
 
   def new
-    listing = Listing.find(params[:listing_id])
-    @photo = listing.photos.new
+    @listing = Listing.find(params[:listing_id])
+    @photo = @listing.photos.new
   end
 
   def create
-      @user = User.find(params[:user_id])
-      @image = @user.images.new(image_params)
-      if @image.save
+
+      @listing = Listing.find(params[:listing_id])
+      @photo = @listing.photos.new(image_params)
+      if @photo.save
         flash[:notice] = "Your photo was added!"
-        redirect_to user_images_path
+        redirect_to user_path(@listing)
       else
         flash[:alert] = "There was a problem uploading your photo.  Please try again."
-        redirect_to :back
+        render :new
       end
     end
-
-
 
   private
 
     def image_params
-      params.require(:image).permit(:image)
+      params.require(:photo).permit(:image)
     end
 
 end

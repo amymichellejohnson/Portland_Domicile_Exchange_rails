@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pdx</title>
+  <title>PDXchange</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -29,6 +29,8 @@
     <% if user_signed_in? %>
       <p class="right-align">Logged in as <%= current_user.email %></p>
     <% end %>
+
+    <h1><span><%= image_tag("simplehouse.jpg", :alt => "gray house", size: "26") %></span>Portland Domicile Exchange</h1>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

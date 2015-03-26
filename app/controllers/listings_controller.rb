@@ -4,19 +4,19 @@ class ListingsController < ApplicationController
   end
 
  def new
-   @listing = Listing.new
+   @listing = current_user.listings.new
  end
 
  def create
 
-   user = current_user
-   @listing = user.listings.new(listing_params)
+   @user = current_user
+   @listing = @user.listings.new(listing_params)
    if @listing.save
      flash[:notice] = "Listing successfully saved"
      redirect_to listing_path(@listing)
    else
      flash[:alert] = "There was a problem creating your listing. Please try again."
-     render new
+     render :new
    end
  end
 

@@ -6,6 +6,7 @@
         <th>Title</th>
         <th>Location</th>
         <th>Price</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             <td><%= listing.title %></td>
             <td><%= listing.location %></td>
             <td>$<%= listing.price %></td>
+            <td class="text-center"><%= link_to "Add photo", new_listing_photo_path(listing), :class => "btn btn-sm btn-warning" %></td>
           </trl>
       <% end %>
     </tbody>
