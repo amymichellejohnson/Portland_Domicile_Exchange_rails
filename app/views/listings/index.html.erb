@@ -1,2 +1,24 @@
-<h1>Hi.  All Listings will be here someday and so will the ability to search</h1>
+<h1>Listings</h1>
+<div class="well">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody data-link="row" class="rowlink">
+      <% @listings.each do |listing| %>
+          <tr>
+            <td><%= link_to listing.title, listing_path(listing) %></td></a>
+            <td><%= listing.location %></td>
+            <td>$<%= listing.price %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
 <div class="batman">. &nbsp;&nbsp; .<br>>&nbsp;❤&nbsp;<<br><br>I AM THE PDX CATMAN</div>
